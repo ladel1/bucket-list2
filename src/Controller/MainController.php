@@ -5,6 +5,7 @@ namespace App\Controller;
 use DateTime;
 use DateTimeZone;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,7 +14,8 @@ class MainController extends AbstractController{
     /**
      *@Route("/main/home",name="app_home")
      */
-    public function home():Response{       
+    public function home(Request $request):Response{   
+        $titre= "My Bucket List";    
         $menu = [
             //     0       1
                 ["Home","app_home"],
@@ -23,20 +25,19 @@ class MainController extends AbstractController{
                 ["Login",""],
                 ["Register",""]
             ];
-        return $this->render("main/index.html.twig",
-                        [
-                            "titre"=>"My Bucket List", 
-                            "menu"=>$menu                      
-                        ]
-                    );
+        $name ="Adel";
+        $tab = compact("titre",'menu',"name");
+        $tab["key"]="value";
+        return $this->render("main/index.html.twig",$tab);
     }
 
 
     /**
-     *@Route("/contact",name="app_contact")
+     *@Route("/contact/{name}",name="app_contact",requirements={"name"="[a-zA-Z]+"})
      */
-    public function contact():Response{       
+    public function contact($name="adel"):Response{       
      
+
         $menu = [
         //     0       1
             ["Home","app_home"],
@@ -50,7 +51,8 @@ class MainController extends AbstractController{
         return $this->render("contact/index.html.twig",
                         [
                             "titre"=>"My Bucket List", 
-                            "menu"=>$menu                   
+                            "menu"=>$menu,
+                            "prenom"=>$name                  
                         ]
                     );
     }    

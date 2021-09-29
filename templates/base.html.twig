@@ -17,15 +17,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">                       
         {% for item in menu %}
-            {% if item[1] %}
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{path(item[1])}}">{{item[0]}}</a>
-                </li>
-            {% else %} 
+
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">{{item[0]}}</a>
                 </li>
-            {% endif %}
+   
         {% endfor %}
             <li class="nav-item">
                 {% block menuli %}

@@ -7,6 +7,9 @@
 {% block content %} 
 <div class="row text-center mt-4">
     <h2>Home</h2>
+    {% set var = "<h1>Salut</h1><br><p>azertyui</p>" %}
+
+    {{var|striptags("<h1><br>")}}
 </div>
 
 {% endblock %}
