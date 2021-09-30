@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController{
 
     /**
-     *@Route("/main/home",name="app_home")
+     *@Route("/home",name="app_home")
      */
     public function home(Request $request):Response{   
         $titre= "My Bucket List";    
@@ -29,32 +29,6 @@ class MainController extends AbstractController{
         $tab = compact("titre",'menu',"name");
         $tab["key"]="value";
         return $this->render("main/index.html.twig",$tab);
-    }
-
-
-    /**
-     *@Route("/contact/{name}",name="app_contact",requirements={"name"="[a-zA-Z]+"})
-     */
-    public function contact($name="adel"):Response{       
-     
-
-        $menu = [
-        //     0       1
-            ["Home","app_home"],
-            ["Contact","app_contact"],
-            ["About Us",""],
-            ["Blog",""],
-            ["Login",""],
-            ["Register",""]
-        ];
-
-        return $this->render("contact/index.html.twig",
-                        [
-                            "titre"=>"My Bucket List", 
-                            "menu"=>$menu,
-                            "prenom"=>$name                  
-                        ]
-                    );
-    }    
+    }   
 
 }
