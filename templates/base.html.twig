@@ -2,19 +2,29 @@
 <html>
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-{% block title %}{% endblock %}
+{% block title %}<title>{{titre}}</title>{% endblock %}
 {% block stylesheet %}{% endblock %}
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 <link rel="shortcut icon" href="{{asset('img/favicon.png')}}" type="image/x-icon">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
+{% set menu = [
+    ["Home","app_home"],
+    ["Contact",""],
+    ["About Us","app_about_us"],
+    ["Blog",""],
+    ["Wish List","app_wish_list"],
+    ["Mentions Légales","app_legal"],
+    ["Login",""],
+    ["Register",""]
+] %}
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="{{asset('img/logo.png')}}" alt="" srcset="">    
-            {{titre}}
+            
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,6 +63,7 @@
             </p>
         </div>        
     </footer>
+    <script src="{{asset('js/main.js')}}"></script>
 </div>
 </body>
 </html>

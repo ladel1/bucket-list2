@@ -1,1 +1,1 @@
-alert("azertyu");
+console.log("azertyu");
