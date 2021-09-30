@@ -19,7 +19,7 @@ class MainController extends AbstractController{
         $menu = [
             //     0       1
                 ["Home","app_home"],
-                ["Contact","app_contact"],
+                ["Contact",""],
                 ["About Us",""],
                 ["Blog",""],
                 ["Login",""],
