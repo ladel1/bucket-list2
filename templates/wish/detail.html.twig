@@ -1,1 +1,21 @@
 {% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="row mt-5">
+    <div class="row">
+        <h2>{{wish.title}}</h2>
+        <span>{{wish.author}}</span>
+    </div>
+    <div class="row mt-3">
+        <p>
+            {{wish.description}}
+        </p>
+        <span>
+            {{wish.dateCreated|date("d-m-y H:i")}}
+        </span>
+    </div>
+
+</div>
+
+{% endblock %}

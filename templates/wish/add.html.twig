@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="row mt-5">
+    <div class="row">
+        <h2>Ajouter Wish</h2>
+        <form action="{{path("app_wish_add")}}" method="post">
+            <div class="mb-3">
+                <label  class="form-label">Titre</label>
+                <input type="text" name="title" class="form-control" id="exampleFormControlInput1" >
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" name="description"  rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">Auteur</label>
+                <input type="text" class="form-control" name="author" placeholder="ex. Adel">
+              </div>     
+              <button type="submit" name="add" value="ok" class="btn btn-primary">Ajouter Wish</button>         
+        </form>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

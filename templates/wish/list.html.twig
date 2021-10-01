@@ -1,2 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block content %}
+
+    <div class="row mt-5">
+        <ul>
+            {% for wish in wishes %}
+                <li>                
+                    <a href="{{path('app_wish_detail',{'id':wish.id})}}">
+                        {{wish.title}} {{ wish.dateCreated|date("d/m/y") }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
+
